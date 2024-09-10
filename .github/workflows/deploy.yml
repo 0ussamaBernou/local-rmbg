@@ -15,5 +15,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           preCommands: npm run build
           wranglerVersion: "3.75.0"
-          command: pages deploy .svelte-kit/cloudflare --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+          command: pages deploy .svelte-kit/cloudflare --project-name=local-rmbg
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
