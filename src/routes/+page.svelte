@@ -173,21 +173,19 @@
 
 <main class="flex flex-col items-center justify-center gap-4 px-6 py-12 sm:px-8 mx-auto">
     <h1 class="text-4xl font-bold text-center mb-2">Welcome to Local RmBG</h1>
-<h2 class="text-lg font-semibold mb-2 text-center">
-          In-browser background removal, powered by{" "}
-          <a
-            class="underline"
-            target="_blank"
-            href="https://github.com/xenova/transformers.js"
-          >
+    <h2 class="text-lg font-semibold mb-2 text-center">
+        In-browser background removal, powered by{" "}
+        <a class="underline" target="_blank" href="https://github.com/xenova/transformers.js">
             🤗 Transformers.js
-          </a>
-        </h2>
-    <div class="grid w-full max-w-sm items-center gap-1.5">
+        </a>
+    </h2>
+    <div class="grid w-full items-center gap-1.5">
         <Label for="picture">Upload an image</Label>
-        <Input on:change={handleFiles} on:drop={handleFiles} on:dragover={dragging = true} on:dragleave={dragging = false} id="picture" type="file" accept="image/png, image/jpeg, image/jpg" multiple
-            class="hover:border-primary {dragging_style}" />
-        <p>{dragging_style}</p>
+        <div  on:dragover={()=>dragging=true}
+                on:dragleave={()=>dragging=false} role="region">
+            <Input on:change={handleFiles} on:drop={handleFiles} id="picture" type="file" accept="image/png, image/jpeg, image/jpg"
+                multiple class="hover:border-primary {dragging_style}" />
+        </div>
     </div>
     <Button on:click={processImages}>Process</Button>
     {#if isDownloadReady}
@@ -208,7 +206,7 @@
                     text-sm"
                     aria-label={`Copy image ${index + 1} to clipboard`}
                     >
-                    Copy 
+                    Copy
                 </button>
                 <button on:click={()=>
                     downloadImage(processedImages[index] || src)}
