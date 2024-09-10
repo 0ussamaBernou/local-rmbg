@@ -14,4 +14,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           wranglerVersion: "3.75.0"
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: npm run deploy
+          command: pages deploy .svelte-kit/cloudflare --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
